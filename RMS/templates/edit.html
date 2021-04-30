@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<form method="POST" class="post-form" action="/update/{{booking.id}}">
+    {% csrf_token %}
+    <div class="container">
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <h3>Update Details</h3>
+            </div>
+        </div>
+        <div class="image-cropper">
+            <img src="{{ booking.images.url }}" alt="avatar" class="profile-pic">
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-4">
+                <input type="text" name="name" id="id_name" required maxlength="20" value="{{ booking.name }}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Age:</label>
+            <div class="col-sm-4">
+                <input type="number" name="age" id="id_name" value="{{ booking.age }}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">About You:</label>
+            <div class="col-sm-4">
+                <input type="text" name="abtu" id="id_abtu" required maxlength="100" value="{{ booking.abtu }}" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Type of class:</label>
+            <div class="col-sm-4">
+                <input type="text" name="typclass" id="id_typclass" required maxlength="254" value="{{ booking.typclass }}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Type of concession:</label>
+            <div class="col-sm-4">
+                <select name="typconcession" id="id_typconcession">
+                    <option value="general">GENERAL</option>
+                    <option value="ladies">LADIES</option>
+                    <option value="premiumtatkal">TATKAL</option>
+                    <option value="premiumtatkal">PREMIUM TATKAL</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Round Drip:</label>
+            <div class="col-sm-4">
+                <!-- <input type="text" name="roundtrip" id="id_roundtrip" required maxlength="20" value="{{ booking.roundtrip }}" /> -->
+                <label for="roundtrip"></label>
+                <input type="checkbox" name="roundtrip" id="id_roundtrip" {% if booking.roundtrip %} checked="checked" {% endif %}>
+                <br>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date:</label>
+            <div class="col-sm-4">
+                <input type="date" name="datefortrip" id="id_datefortrip" value="{{ booking.datefortrip}}" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Change Image:</label>
+            <div class="col-sm-4">
+                <input type="file" name="images" id="id_images" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock content %}

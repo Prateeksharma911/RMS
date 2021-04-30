@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>About</th>
+            <th>Round Trip</th>
+            <th>Class</th>
+            <th>Consession</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <!-- <td><img src="{{ booking.images.url }}" width="150" alt="img"> </td> -->
+            <td>
+                <div class="image-cropper">
+                    <img src="{{ booking.images.url }}" alt="avatar" class="profile-pic">
+                </div>
+            </td>
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.age }}</td>
+            <td>{{ booking.abtu }}</td>
+            <td>{% if booking.roundtrip %}Yes{%else%}No{%endif%}</td>
+            <td>{{ booking.typclass }}</td>
+            <td>{{ booking.typconcession }}</td>
+            <td>{{ booking.datefortrip|date:"d m, Y" }}</td>
+            <td>
+                <a href="/edit/{{ booking.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                <a href="/delete/{{ booking.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/book" class="btn btn-primary">Add New Record</a></center>
+
+{% endblock content %}

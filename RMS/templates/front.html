@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<form method="POST" class="post-form" action="/book" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <br>
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <h3>Enter Details</h3>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name:</label>
+            <div class="col-sm-4">
+                {{ form.name }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Age:</label>
+            <div class="col-sm-4">
+                {{ form.age }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">About You:</label>
+            <div class="col-sm-4">
+                {{ form.abtu }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Class:</label>
+            <div class="col-sm-4">
+                {{ form.typclass }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Concession:</label>
+            <div class="col-sm-4">
+                {{ form.typconcession }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Round Trip:</label>
+            <div class="col-sm-4">
+                {{ form.roundtrip }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date For Trip:</label>
+            <div class="col-sm-4">
+                <input type="date" name="datefortrip" id="id_datefortrip" value="" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Upload Image:</label>
+            <div class="col-sm-4">
+                {{ form.images }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-1 col-form-label"></label>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock content %}

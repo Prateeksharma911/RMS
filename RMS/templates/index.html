@@ -1,4 +1,61 @@
-{% extends 'base.html' %}
-{% block content %}
-<h2>Home page</h2>
+{% extends 'base.html' %} {% block content %}
+<div class="container" style="margin-top: 50px; margin-bottom: 100px;">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+
+        <div class="form-group">
+            <label for="about">About You</label>
+            <textarea id="about" class="form-control" rows="3" cols="4"></textarea>
+        </div>
+        <br>
+        <label for="types">Choose Class:</label>
+
+        <select name="types" class="form-control" id="cars">
+            <option value="general">GENERAL</option>
+            <option value="ladies">LADIES</option>
+            <option value="tatkal">TATKAL</option>
+            <option value="permium tatkal">PREMIUM TATKAL</option>
+        </select>
+        <br>
+
+        <label for="types">Select:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="divyaangconcession">
+            <label class="form-check-label" for="divyaangconcession">
+                Divyaang Concession
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="availbirth">
+            <label class="form-check-label" for="availbirth">
+                Train with Available Berth
+            </label>
+        </div>
+        <br>
+
+
+        <label for="types">Round Trip:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="oneway" checked>
+            <label class="form-check-label" for="oneway">
+                No
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="roundticket">
+            <label class="form-check-label" for="roundticket">
+                Yes
+            </label>
+        </div>
+        <br>
+
+        <label for="birthday">Date for booking:</label>
+        <input type="date" id="dob" name="dob">
+
+    </form>
+</div>
 {% endblock content %}
