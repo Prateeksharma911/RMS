@@ -6,11 +6,11 @@ from management import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('register/', views.register, name='register'),
+    path('register/', views.RegisterView.as_view()),
     # path('book', views.book),  
     path('book', views.BookView.as_view()),  
-    path('show',views.show),  
-    path('edit/<int:id>', views.edit),  
+    path('show',views.ShowView.as_view()),  
+    path('edit/<int:id>', views.EditView.as_view()),  
     path('update/<int:id>', views.update),  
     path('delete/<int:id>', views.destroy),  
 ]  

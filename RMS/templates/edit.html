@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<form method="POST" class="post-form" action="/update/{{booking.id}}">
+<form method="POST" class="post-form" action="/update/{{booking.id}}" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container">
         <br>
@@ -34,9 +34,14 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Type of class:</label>
+            <label class="col-sm-2 col-form-label">Type of Class:</label>
             <div class="col-sm-4">
-                <input type="text" name="typclass" id="id_typclass" required maxlength="254" value="{{ booking.typclass }}" />
+                <select name="typclass" id="id_typclass">
+                    <option value="AC First Class">AC First Class</option>
+                    <option value="AC 2-Tier">AC 2-Tier</option>
+                    <option value="AC 3-Tier">AC 3-Tier</option>
+                    <option value="First Class">First Class</option>
+                </select>
             </div>
         </div>
 
