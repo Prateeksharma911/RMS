@@ -21,6 +21,7 @@ class Booking(models.Model):
     abtu = models.CharField(max_length=300)  
     typclass= models.CharField(max_length=30,choices=CONCESSION_CHOICES, default='AC First Class')
     typconcession = models.CharField(max_length=20, choices=COLOR_CHOICES, default='general')
+    cost = models.FloatField()
 
     roundtrip = models.BooleanField(default=False)
     datefortrip = models.DateField(default=datetime.now)

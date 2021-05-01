@@ -10,6 +10,7 @@
             <th>Round Trip</th>
             <th>Class</th>
             <th>Consession</th>
+            <th>Cost</th>
             <th>Date</th>
             <th>Actions</th>
         </tr>
@@ -29,6 +30,7 @@
             <td>{% if booking.roundtrip %}Yes{%else%}No{%endif%}</td>
             <td>{{ booking.typclass }}</td>
             <td>{{ booking.typconcession }}</td>
+            <td>{{ booking.cost }}</td>
             <td>{{ booking.datefortrip|date:"d m, Y" }}</td>
             <td>
                 <a href="/edit/{{ booking.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>

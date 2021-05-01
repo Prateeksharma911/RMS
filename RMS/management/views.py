@@ -41,7 +41,7 @@ class RegisterView(View):
 
 
 class BookView(View):
-    def get(self,request):post
+    
     def get(self,request):
         form = BookingForm()  
         return render(request,'front.html',{'form':form})  
